@@ -31,24 +31,31 @@ O núcleo preditivo se baseia em Difusões Estocásticas e Estatística Bayesian
 
 #### 1. Movimento Browniano Geométrico (GBM)
 Utilizado para a evolução básica dos preços:
+
 $$ dS_t = \mu S_t dt + \sigma S_t dW_t $$
+
 Onde $W_t$ é um processo de Wiener standard.
 
 #### 2. Modelo de Heston (Volatilidade Estocástica)
 Para capturar o "sorriso da volatilidade" e caudas gordas:
+
 $$ dS_t = \mu S_t dt + \sqrt{\nu_t} S_t dW_t^S $$
 $$ d\nu_t = \kappa (\theta - \nu_t) dt + \xi \sqrt{\nu_t} dW_t^{\nu} $$
+
 Com correlação $d W_t^S d W_t^{\nu} = \rho dt$.
 
 #### 3. Processo Ornstein-Uhlenbeck (Reversão à Média)
 Utilizado para modelar spreads e commodities:
+
 $$ dx_t = \theta (\mu - x_t) dt + \sigma dW_t $$
 
 #### 4. GARCH(1,1) para Volatilidade Condicional
+
 $$ \sigma_t^2 = \omega + \alpha \epsilon_{t-1}^2 + \beta \sigma_{t-1}^2 $$
 
 #### 5. Filtro de Kalman (Estado-Espaço)
 Estimativa recursiva do estado oculto (tendência real) $x_k$ dado medições ruidosas $z_k$:
+
 $$ \hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k (z_k - H \hat{x}_{k|k-1}) $$
 
 ### 📊 Estrutura do Projeto
